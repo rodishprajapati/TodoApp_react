@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import SingleData from "./SinlgeComponent";
 
 const TodoSection = () => {
   //const initialTodos = JSON.parse(localStorage.getItem("todoss"));
@@ -15,7 +16,7 @@ const TodoSection = () => {
       return;
     }
     const NewTodo = [...todos, newVlaue];
-    localStorage.setItem("todos", JSON.stringify([...todos, NewTodo]));
+    localStorage.setItem("todos", JSON.stringify(NewTodo));
     setTodos(NewTodo);
     todoText.current.value = "";
   };
@@ -36,7 +37,7 @@ const TodoSection = () => {
         {todos.map((el) => {
           return (
             <>
-              <div> {el}</div>
+              <SingleData datas={el} />
             </>
           );
         })}
